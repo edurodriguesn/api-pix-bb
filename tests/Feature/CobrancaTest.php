@@ -24,7 +24,7 @@ class CobrancaTest extends TestCase
     public function test_criar_cobranca_com_cpf(): void
     {
         $payload = $this->gerarPayloadCobranca([
-            'cpf' => '12345678909'
+            'cpf' => '12345678909',
         ]);
 
         $response = $this->post('/pix/criar-cobranca', $payload);
@@ -34,11 +34,10 @@ class CobrancaTest extends TestCase
     public function test_criar_cobranca_com_cnpj(): void
     {
         $payload = $this->gerarPayloadCobranca([
-            'cnpj' => '12345678000195'
+            'cnpj' => '12345678000195',
         ]);
 
         $response = $this->post('/pix/criar-cobranca', $payload);
         $response->assertStatus(200);
     }
-    
 }
