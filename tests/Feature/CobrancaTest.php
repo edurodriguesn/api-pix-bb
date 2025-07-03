@@ -27,7 +27,7 @@ class CobrancaTest extends TestCase
             'cpf' => '12345678909',
         ]);
 
-        $response = $this->post('/pix/criar-cobranca', $payload);
+        $response = $this->post('/pix/gerar', $payload);
         $response->assertStatus(200);
     }
 
@@ -37,7 +37,7 @@ class CobrancaTest extends TestCase
             'cnpj' => '12345678000195',
         ]);
 
-        $response = $this->post('/pix/criar-cobranca', $payload);
+        $response = $this->post('/pix/gerar', $payload);
         $response->assertStatus(200);
     }
 }
