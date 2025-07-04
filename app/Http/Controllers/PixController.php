@@ -3,19 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Services\PixService;
 class PixController extends Controller
 {
+    private $pixService;
+    public function __construct(PixService $pixService)
+    {
+        $this->pixService = $pixService;
+    }
+
     public function store(Request $request)
     {
-        $resposta = [
-            'expiracao' => now()->addMinutes(30)->timestamp,
-            'txid' => 'abc123',
-            'status' => 'ativo',
-            'valor' => [
-                'original' => '100.00',
-            ],
-        ];
+        $resposta = $this->pixService->gerarCobranca($request->all());
 
         return response()->json($resposta);
     }
