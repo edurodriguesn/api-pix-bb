@@ -40,6 +40,7 @@ class CobrancaTest extends TestCase
         $response = $this->post('/pix/gerar', $payload);
         $response->assertStatus(200);
     }
+
     public function test_resposta_criacao_cobranca_contem_campos_esperados(): void
     {
         $payload = $this->gerarPayloadCobranca([

@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Services\PixService;
+use Illuminate\Http\Request;
+
 class PixController extends Controller
 {
     private $pixService;
+
     public function __construct(PixService $pixService)
     {
         $this->pixService = $pixService;
