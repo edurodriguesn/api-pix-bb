@@ -8,6 +8,15 @@ class PixController extends Controller
 {
     public function store(Request $request)
     {
-        return true;
+        $resposta = [
+            'expiracao' => now()->addMinutes(30)->timestamp,
+            'txid' => 'abc123',
+            'status' => 'ativo',
+            'valor' => [
+                'original' => '100.00'
+            ],
+        ];
+
+        return response()->json($resposta);
     }
 }
