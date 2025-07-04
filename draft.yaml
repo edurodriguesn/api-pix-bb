@@ -1,0 +1,6 @@
+models:
+  Pix:
+    expiracao: timestamp
+    txid: string
+    status: string default:ativo
+    valor: decimal:10,2
