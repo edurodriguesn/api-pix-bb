@@ -40,4 +40,27 @@ class CobrancaTest extends TestCase
         $response = $this->post('/pix/gerar', $payload);
         $response->assertStatus(200);
     }
+    public function test_resposta_criacao_cobranca_contem_campos_esperados(): void
+    {
+        $payload = $this->gerarPayloadCobranca([
+            'cpf' => '12345678909',
+        ]);
+
+        $response = $this->post('/pix/gerar', $payload);
+        $response->assertStatus(200);
+
+        $response->assertJsonStructure([
+            'expiracao',
+            'txid',
+            'status',
+            'valor',
+        ]);
+
+        $responseData = $response->json();
+
+        $this->assertIsInt($responseData['expiracao']);
+        $this->assertIsString($responseData['txid']);
+        $this->assertIsString($responseData['status']);
+        $this->assertIsArray($responseData['valor']);
+    }
 }
