@@ -13,7 +13,7 @@ class PixController extends Controller
             'txid' => 'abc123',
             'status' => 'ativo',
             'valor' => [
-                'original' => '100.00'
+                'original' => '100.00',
             ],
         ];
 
