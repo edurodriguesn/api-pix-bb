@@ -1,0 +1,6 @@
+created:
+    - database/factories/PixFactory.php
+    - database/migrations/2025_07_04_142258_create_pixes_table.php
+    - app/Models/Pix.php
+models:
+    Pix: { expiracao: timestamp, txid: string, status: 'string default:ativo', valor: 'decimal:10,2' }
